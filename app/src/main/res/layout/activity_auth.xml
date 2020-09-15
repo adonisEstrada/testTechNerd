@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AuthActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyleHorizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_margin="50px"
+            android:text="Welcome to the Final Test Project by Adonis Estrada" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="fill_parent"
+            android:hint="Email"
+            android:layout_margin="20px"
+            android:layout_height="wrap_content">
+        </EditText>
+        <EditText
+            android:id="@+id/editTextPass"
+            android:layout_width="match_parent"
+            android:layout_margin="20px"
+            android:hint="Password"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:layout_margin="20px"
+                android:text="Register" />
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:layout_margin="20px"
+                android:text="Login" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/forgotPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="forgot password?"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textAlignment="center"></TextView>
+    </LinearLayout>
+
+
+
+</RelativeLayout>
