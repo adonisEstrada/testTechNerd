@@ -92,14 +92,14 @@ public class AuthActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             hideProgress();
                             if(task.isSuccessful()){
-                                AlertDialog alert = showAlert("User login successfully", "Done!");
-                                        alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                    @Override
-                                    public void onDismiss(DialogInterface dialogInterface) {
+                                //AlertDialog alert = showAlert("User login successfully", "Done!");
+                                  //      alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                    //@Override
+                                //public void onDismiss(DialogInterface dialogInterface) {
                                         showHome();
-                                    }
-                                });
-                                        alert.show();
+                                  //  }
+                                //});
+                                    //    alert.show();
                             }else{
                                 showAlert(null, null).show();
                             }
@@ -133,7 +133,7 @@ public class AuthActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         changePass();
                         dialogInterface.dismiss();
-                        showAlert("Your password has been sended, please check your email.", "Password changed!").show();
+                        showAlert("Your password has been send, please check your email.", "Password changed!").show();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

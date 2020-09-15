@@ -7,7 +7,7 @@
     tools:context=".activities.AddActivity">
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarAdd"
         android:indeterminate="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +20,12 @@
         android:layout_margin="20px"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:hint="email"
+            android:layout_margin="20px"
+            android:layout_height="wrap_content"></EditText>
         <EditText
             android:id="@+id/firstName"
             android:layout_width="match_parent"
