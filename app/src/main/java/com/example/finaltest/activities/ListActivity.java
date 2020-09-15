@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -61,9 +62,15 @@ public class ListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                
+                initChat(list.get(i).getTitulo1());
             }
         });
+    }
+
+    private void initChat(String email){
+        Intent intent = new Intent(this, ChatActivity.class);
+        intent.putExtra("email", email);
+        startActivity(intent);
     }
     private void setAdapter(){
         GenericAdapter adapter = new GenericAdapter(this, R.id.listView, list);

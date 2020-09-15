@@ -40,6 +40,11 @@ public class GenericAdapter extends ArrayAdapter<ItemsListView> {
             int textElement2 = 0;
             int textElement3 = 0;
             int textElement4 = 0;
+            if (elemento.getTitulo2() != null && !elemento.getTitulo2().equals("")) {
+                resourseUtil = R.layout.listview_2_element;
+                textElement1 = R.id.text2element1;
+                textElement2 = R.id.text2element2;
+            }
                         if (elemento.getTitulo4() != null && !elemento.getTitulo4().equals("")) {
                             resourseUtil = R.layout.listview_4_element;
                             textElement1 = R.id.text4element1;
