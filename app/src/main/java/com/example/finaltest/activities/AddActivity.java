@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -88,7 +89,7 @@ public class AddActivity extends AppCompatActivity {
                             alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
                                 @Override
                                 public void onDismiss(DialogInterface dialogInterface) {
-                                    onBackPressed();
+                                    onBack();
                                 }
                             });
                             alert.show();
@@ -100,6 +101,12 @@ public class AddActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void onBack(){
+        Intent intent = new Intent(this, ListActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private AlertDialog showAlert(String message, String title){

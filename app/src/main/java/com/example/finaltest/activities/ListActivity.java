@@ -126,6 +126,7 @@ public class ListActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddActivity.class);
         intent.putExtra("email", email);
         startActivity(intent);
+        finish();
     }
 
 
