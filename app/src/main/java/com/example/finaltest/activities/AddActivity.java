@@ -1,5 +1,6 @@
 package com.example.finaltest.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.example.finaltest.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -59,16 +62,20 @@ public class AddActivity extends AppCompatActivity {
                     map.put("number", number.getText().toString());
                     map.put("first_name", firstName.getText().toString());
                     map.put("last_name", lastName.getText().toString());
-                    db.collection("contacts").document(email.getText().toString()).set(map);
-                    hideProgress();
-                    AlertDialog alert =showAlert("Contact is saved successfully.", "Done!");
-                    alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    db.collection("contacts").document(email.getText().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            onBackPressed();
+                        public void onComplete(@NonNull Task<Void> task) {
+                            hideProgress();
+                            AlertDialog alert =showAlert("Contact is saved successfully.", "Done!");
+                            alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialogInterface) {
+                                    onBackPressed();
+                                }
+                            });
+                            alert.show();
                         }
                     });
-                    alert.show();
                 }else{
                     hideProgress();
                     showAlert("Please, fill fields.", "Alert!.").show();
