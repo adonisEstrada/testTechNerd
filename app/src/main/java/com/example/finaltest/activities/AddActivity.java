@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import com.example.finaltest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -43,6 +44,23 @@ public class AddActivity extends AppCompatActivity {
         accept = (Button) findViewById(R.id.accept);
         progressBar = (ProgressBar) findViewById(R.id.progressBarAdd);
         setTitle("Add Contact");
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle!=null && bundle.get("email")!=null){
+            setTitle("Edit Contact");
+            showProgress();
+            FirebaseFirestore.getInstance().collection("contacts").document(bundle.get("email").toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    hideProgress();
+                    email.setText(task.getResult().getId());
+                    firstName.setText(task.getResult().get("first_name").toString());
+                    lastName.setText(task.getResult().get("last_name").toString());
+                    number.setText(task.getResult().get("number").toString());
+                }
+            });
+        }
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

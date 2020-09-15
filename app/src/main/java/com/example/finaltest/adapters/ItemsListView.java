@@ -1,67 +1,67 @@
 package com.example.finaltest.adapters;
 
 public class ItemsListView {
-    private String titulo1;
-    private String titulo2;
-    private String titulo3;
-    private String titulo4;
+    private String title1;
+    private String title2;
+    private String title3;
+    private String title4;
 
-    public ItemsListView(String titulo1, String titulo2, String titulo3, String titulo4) {
-        this.titulo1 = titulo1;
-        this.titulo2 = titulo2;
-        this.titulo3 = titulo3;
-        this.titulo4 = titulo4;
+    public ItemsListView(String title1, String title2, String title3, String title4) {
+        this.title1 = title1;
+        this.title2 = title2;
+        this.title3 = title3;
+        this.title4 = title4;
     }
 
-    public String getTitulo4() {
-        return titulo4;
+    public String getTitle4() {
+        return title4;
     }
 
-    public void setTitulo4(String titulo4) {
-        this.titulo4 = titulo4;
+    public void setTitle4(String title4) {
+        this.title4 = title4;
     }
 
 
 
-    public ItemsListView(String titulo1, String titulo2, String titulo3) {
-        this.titulo1 = titulo1;
-        this.titulo2 = titulo2;
-        this.titulo3 = titulo3;
+    public ItemsListView(String title1, String title2, String title3) {
+        this.title1 = title1;
+        this.title2 = title2;
+        this.title3 = title3;
     }
 
-    public ItemsListView(String titulo1) {
-        this.titulo1 = titulo1;
+    public ItemsListView(String title1) {
+        this.title1 = title1;
     }
 
-    public ItemsListView(String titulo1, String titulo2) {
-        this.titulo1 = titulo1;
-        this.titulo2 = titulo2;
+    public ItemsListView(String title1, String title2) {
+        this.title1 = title1;
+        this.title2 = title2;
     }
 
     public ItemsListView() {
     }
 
-    public String getTitulo1() {
-        return titulo1;
+    public String getTitle1() {
+        return title1;
     }
 
-    public void setTitulo1(String titulo1) {
-        this.titulo1 = titulo1;
+    public void setTitle1(String title1) {
+        this.title1 = title1;
     }
 
-    public String getTitulo2() {
-        return titulo2;
+    public String getTitle2() {
+        return title2;
     }
 
-    public void setTitulo2(String titulo2) {
-        this.titulo2 = titulo2;
+    public void setTitle2(String title2) {
+        this.title2 = title2;
     }
 
-    public String getTitulo3() {
-        return titulo3;
+    public String getTitle3() {
+        return title3;
     }
 
-    public void setTitulo3(String titulo3) {
-        this.titulo3 = titulo3;
+    public void setTitle3(String title3) {
+        this.title3 = title3;
     }
 }

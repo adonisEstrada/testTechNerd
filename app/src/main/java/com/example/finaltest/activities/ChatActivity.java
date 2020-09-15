@@ -92,8 +92,8 @@ public class ChatActivity extends AppCompatActivity {
                                 || (document.getData().get("sender_email").toString().equals(bundle.getString("email"))
                                         && document.getData().get("receiver_email").toString().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))){
                                     ItemsListView itemsListView = new ItemsListView();
-                                    itemsListView.setTitulo1(document.getData().get("sender_email").toString());
-                                    itemsListView.setTitulo2(document.getData().get("message").toString());
+                                    itemsListView.setTitle1(document.getData().get("sender_email").toString());
+                                    itemsListView.setTitle2(document.getData().get("message").toString());
                                     list.add(itemsListView);
                                 }
                             }

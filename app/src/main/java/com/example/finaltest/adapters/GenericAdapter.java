@@ -40,12 +40,12 @@ public class GenericAdapter extends ArrayAdapter<ItemsListView> {
             int textElement2 = 0;
             int textElement3 = 0;
             int textElement4 = 0;
-            if (elemento.getTitulo2() != null && !elemento.getTitulo2().equals("")) {
+            if (elemento.getTitle2() != null && !elemento.getTitle2().equals("")) {
                 resourseUtil = R.layout.listview_2_element;
                 textElement1 = R.id.text2element1;
                 textElement2 = R.id.text2element2;
             }
-                        if (elemento.getTitulo4() != null && !elemento.getTitulo4().equals("")) {
+                        if (elemento.getTitle4() != null && !elemento.getTitle4().equals("")) {
                             resourseUtil = R.layout.listview_4_element;
                             textElement1 = R.id.text4element1;
                             textElement2 = R.id.text4element2;
@@ -60,19 +60,19 @@ public class GenericAdapter extends ArrayAdapter<ItemsListView> {
             row = layoutInflater.inflate(resourseUtil, parent, false);
             if (textElement1 != 0) {
                 holder.textViewTitulo = (TextView) row.findViewById(textElement1);
-                holder.textViewTitulo.setText(elemento.getTitulo1());
+                holder.textViewTitulo.setText(elemento.getTitle1());
             }
             if (textElement2 != 0) {
                 holder.textView2 = (TextView) row.findViewById(textElement2);
-                holder.textView2.setText(elemento.getTitulo2());
+                holder.textView2.setText(elemento.getTitle2());
             }
             if (textElement3 != 0) {
                 holder.textView3 = (TextView) row.findViewById(textElement3);
-                holder.textView3.setText(elemento.getTitulo3());
+                holder.textView3.setText(elemento.getTitle3());
             }
             if (textElement4 != 0) {
                 holder.textView4 = (TextView) row.findViewById(textElement4);
-                holder.textView4.setText(elemento.getTitulo4());
+                holder.textView4.setText(elemento.getTitle4());
             }
         }
         return row;
