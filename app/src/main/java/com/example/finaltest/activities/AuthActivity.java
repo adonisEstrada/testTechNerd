@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -74,6 +75,9 @@ public class AuthActivity extends AppCompatActivity {
                             }
                         }
                     });
+                }else{
+                    hideProgress();
+                    showAlert("Please, fill fields.", "Alert!.").show();
                 }
             }
         });
@@ -101,16 +105,59 @@ public class AuthActivity extends AppCompatActivity {
                             }
                         }
                     });
+                }else{
+                    hideProgress();
+                    showAlert("Please, fill fields.", "Alert!.").show();
+                }
+            }
+        });
+        forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!editTextEmail.getText().toString().isEmpty()){
+                    showConfirm();
+                }else{
+                    showAlert("Please, fill email field.", "Alert!").show();
                 }
             }
         });
 
     }
 
+    private void showConfirm(){
+        new AlertDialog.Builder(this)
+                .setMessage("Your password will been changed, continue?")
+                .setTitle("Alert!")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        changePass();
+                        dialogInterface.dismiss();
+                        showAlert("Your password has been sended, please check your email.", "Password changed!").show();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
+    }
+    private void changePass(){
+        FirebaseAuth.getInstance().sendPasswordResetEmail(editTextEmail.getText().toString());
+    }
+
     private AlertDialog showAlert(String message, String title){
-        return new AlertDialog.Builder(this).setTitle(title.isEmpty()?"Error!.":title)
-                .setPositiveButton("Accept", null)
-                .setMessage(message.isEmpty()?"An authentication error has occurred.":message).create();
+        if(title!=null && message!=null){
+            return new AlertDialog.Builder(this).setTitle(title.isEmpty()?"Error!.":title)
+                    .setPositiveButton("Accept", null)
+                    .setMessage(message.isEmpty()?"An authentication error has occurred.":message).create();
+        }else{
+            return new AlertDialog.Builder(this).setTitle("Error!.")
+                    .setPositiveButton("Accept", null)
+                    .setMessage("An authentication error has occurred.").create();
+        }
+
     }
 
     private void showHome(){
@@ -124,7 +171,7 @@ public class AuthActivity extends AppCompatActivity {
         registerButton.setEnabled(false);
         editTextEmail.setEnabled(false);
         editTextPass.setEnabled(false);
-        forgotPass.setEnabled(false);
+        forgotPass.setVisibility(View.INVISIBLE);
     }
     private void hideProgress(){
         progressBar.setVisibility(View.INVISIBLE);
@@ -132,6 +179,6 @@ public class AuthActivity extends AppCompatActivity {
         registerButton.setEnabled(true);
         editTextEmail.setEnabled(true);
         editTextPass.setEnabled(true);
-        forgotPass.setEnabled(true);
+        forgotPass.setVisibility(View.VISIBLE);
     }
 }

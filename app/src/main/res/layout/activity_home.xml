@@ -9,16 +9,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:layout_margin="20px"
         android:layout_height="match_parent">
         <Button
-            android:id="@+id/buttonUpdate"
+            android:id="@+id/buttonSetup"
             android:layout_width="match_parent"
-            android:text="addContact"
+            android:layout_margin="20px"
+            android:text="Setup"
             android:layout_height="wrap_content"></Button>
         <Button
-            android:id="@+id/buttonAddContact"
+            android:id="@+id/buttonAdd"
             android:layout_width="match_parent"
+            android:layout_margin="20px"
             android:text="addContact"
+            android:layout_height="wrap_content">
+        </Button>
+        <Button
+            android:id="@+id/buttonList"
+            android:layout_width="match_parent"
+            android:layout_margin="20px"
+            android:text="List Contacts"
+            android:layout_height="wrap_content">
+        </Button>
+        <Button
+            android:id="@+id/buttonLogOut"
+            android:layout_width="match_parent"
+            android:layout_margin="20px"
+            android:text="Log out"
             android:layout_height="wrap_content">
         </Button>
     </LinearLayout>
